@@ -2,9 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../layout/taglib.jsp" %>
 
-<table class="table-striped" >
+<table class="table table-bordered table-hover" >
 	<thead>
-		<tr><td>Student list<td><td>Action</td></tr>
+		<tr>
+			<td>Student list</td>
+			<td>Action</td>
+		</tr>
 	</thead>
 	<tbody>
 		<c:forEach items="${studentList}" var="student">

@@ -13,28 +13,30 @@
 	<definition name="home" extends="common">
 		<put-attribute name="title" value="Java Blog" />
 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
-		<put-attribute name="current" value="home" />
+		<put-attribute name="current" value="home" cascade="true"/>
 	</definition>
 
 	<definition name="student" extends="common">
 		<put-attribute name="title" value="Java Blog" />
 		<put-attribute name="body" value="/WEB-INF/views/student.jsp" />
-		<put-attribute name="current" value="add" />
+		<put-attribute name="current" value="student" cascade="true"/>
 	</definition>
 	
 	<definition name="login" extends="common">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
-		<put-attribute name="current" value="login"></put-attribute>
+		<put-attribute name="current" value="login" cascade="true" ></put-attribute>
 	</definition>
 
 	<definition name="thankyou" extends="common">
 		<put-attribute name="title" value="Thank you" />
 		<put-attribute name="body" value="/WEB-INF/views/thankyou.jsp" />
+		<put-attribute name="current" value="thankyou" cascade="true"></put-attribute>
 	</definition>
 	
 	<definition name="studentList" extends="common">
 		<put-attribute name="title" value="Student List" />
 		<put-attribute name="body" value="/WEB-INF/views/studentList.jsp" />
+		<put-attribute name="current" value="studentList" cascade="true"></put-attribute>
 	</definition>
 </tiles-definitions>

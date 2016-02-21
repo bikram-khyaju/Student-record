@@ -64,7 +64,7 @@ public class StudentController {
 	public String deleteStudent(@PathVariable int id,Model model){
 		studentService.delete(id);
 		// model.addAttribute("studentList", studentService.allStudentList());
-		return "studentList";
+		return "redirect:/allStudent";
 	}
 
 }
