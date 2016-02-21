@@ -1,10 +1,13 @@
 package com.student.record.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Student {
@@ -25,6 +28,17 @@ public class Student {
 	@Column(name="password")
 	private String password;
 	
+	/*@ManyToMany
+	private List<Role> role;
+	
+	public List<Role> getRole() {
+		return role;
+	}
+
+	public void setRole(List<Role> role) {
+		this.role = role;
+	}*/
+
 	public String getEmail() {
 		return email;
 	}

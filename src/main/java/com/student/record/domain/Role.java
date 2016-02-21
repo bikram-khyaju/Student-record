@@ -2,8 +2,10 @@ package com.student.record.domain;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
@@ -11,11 +13,24 @@ import javax.persistence.ManyToMany;
 public class Role {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name = "RoleName")
+	private String name;
+	
 	@ManyToMany
-	private List<StudentLogin> users;
+	private List<User> users;
+
+	
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 
 	public Long getId() {
 		return id;
@@ -25,12 +40,15 @@ public class Role {
 		this.id = id;
 	}
 
-	public List<StudentLogin> getUsers() {
-		return users;
+	public String getName() {
+		return name;
 	}
 
-	public void setUsers(List<StudentLogin> users) {
-		this.users = users;
+	public void setName(String name) {
+		this.name = name;
 	}
 
+	
+
+	
 }

@@ -2,20 +2,23 @@ package com.student.record.domain;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class StudentLogin {
+public class User {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	private String userName;
+	@Column(name = "UserName")
+	private String name;
 	
 	private String password;
 	
@@ -39,12 +42,14 @@ public class StudentLogin {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	
+
+	public String getName() {
+		return name;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {
