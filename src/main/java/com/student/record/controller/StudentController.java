@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,8 +20,9 @@ public class StudentController {
 	
 	@Autowired
 	StudentService studentService;
+	
 
-	@RequestMapping(value={"/"},method=RequestMethod.GET)
+	@RequestMapping(value={"/","/home"},method=RequestMethod.GET)
 	public String home(){
 		return "home";
 	}
@@ -43,13 +45,26 @@ public class StudentController {
  
 		}
 		
-	   	return "redirect:/thankyou";
+	   	return "thankyou";
 	}
 	
 	@RequestMapping(value={"/thankyou"})
 	public String thankyou(Model model){
 //		model.addAttribute("students", studentService.findAll());
 		return "thankyou";
+	}
+	
+	@RequestMapping(value="/allStudent", method=RequestMethod.GET)
+	public String allStudentList(Model model){
+		model.addAttribute("studentList", studentService.allStudentList());
+		return "studentList";
+	}
+	
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	public String deleteStudent(@PathVariable int id,Model model){
+		studentService.delete(id);
+		// model.addAttribute("studentList", studentService.allStudentList());
+		return "studentList";
 	}
 
 }

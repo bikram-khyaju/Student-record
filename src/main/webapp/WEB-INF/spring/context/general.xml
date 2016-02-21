@@ -4,19 +4,37 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="common" template="/WEB-INF/layout/classic.jsp">
+		<put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/layout/menu.jsp" />
+		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
 	</definition>
 
-	<definition name="" extends="common">
-		<put-attribute name="title" value="Java Blog" />
-		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
-		<put-attribute name="current" value="index" />
-	</definition>
-	
 	<definition name="home" extends="common">
 		<put-attribute name="title" value="Java Blog" />
 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
-		<put-attribute name="current" value="index" />
+		<put-attribute name="current" value="home" />
 	</definition>
 
+	<definition name="student" extends="common">
+		<put-attribute name="title" value="Java Blog" />
+		<put-attribute name="body" value="/WEB-INF/views/student.jsp" />
+		<put-attribute name="current" value="add" />
+	</definition>
+	
+	<definition name="login" extends="common">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+		<put-attribute name="current" value="login"></put-attribute>
+	</definition>
+
+	<definition name="thankyou" extends="common">
+		<put-attribute name="title" value="Thank you" />
+		<put-attribute name="body" value="/WEB-INF/views/thankyou.jsp" />
+	</definition>
+	
+	<definition name="studentList" extends="common">
+		<put-attribute name="title" value="Student List" />
+		<put-attribute name="body" value="/WEB-INF/views/studentList.jsp" />
+	</definition>
 </tiles-definitions>

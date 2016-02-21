@@ -1,5 +1,7 @@
 package com.student.record.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,5 +21,18 @@ public class StudentServiceImpl implements StudentService {
 		studentRepository.save(student);
 
 	}
+
+	@Override
+	public List<Student> allStudentList() {
+		return  (List<Student>) studentRepository.findAll();
+	}
+
+	@Override
+	public void delete(long id) {
+		//Integer ids = (int)id;
+		studentRepository.delete(id);
+	}
+	
+
 
 }

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,37 +27,29 @@
 
 <!-- Jquery  -->
 
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><tiles:getAsString name="title" /></title>
+
+<link rel="stylesheet" type="text/css" href="resources/style.css"/>
+
 </head>
 <body>
 
-<div class="container">
+	<div class="container">
 
-      <!-- The justified navigation menu is meant for single line per list item.
-           Multiple lines will require custom code not provided by Bootstrap. -->
-      <div class="masthead">
-        <h3 class="text-muted">Project name</h3>
-        <nav>
-          <ul class="nav nav-justified">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Downloads</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+		<tiles:insertAttribute name="header" />
 
-	<tiles:insertAttribute name="body" />
+		<div class="main">
+			<tiles:insertAttribute name="menu" />
 
-	<br>
-	<br>
-
-	<tiles:insertAttribute name="footer" />
-</div>
+			<div class="rightPane">
+				<tiles:insertAttribute name="body" />
+			</div>
+		</div>
+		<tiles:insertAttribute name="footer" />
+	</div>
 </body>
 </html>
