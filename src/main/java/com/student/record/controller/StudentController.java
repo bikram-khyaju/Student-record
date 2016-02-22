@@ -54,7 +54,7 @@ public class StudentController {
 		return "thankyou";
 	}
 	
-	@RequestMapping(value="/allStudent", method=RequestMethod.GET)
+	@RequestMapping(value="/studentList", method=RequestMethod.GET)
 	public String allStudentList(Model model){
 		model.addAttribute("studentList", studentService.allStudentList());
 		return "studentList";
