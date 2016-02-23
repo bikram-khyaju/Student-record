@@ -22,7 +22,11 @@ public class loginController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String doLogin(@ModelAttribute("user") User users, Model model) {
+		System.out.println(users.getName());
+		System.out.println(users.getPassword());
+		
 		if(userService.chkUserAndPassword(users.getName(), users.getPassword())!=null){
+			System.out.println(userService.allUser());
 			return "home";
 		}
 		return "login";

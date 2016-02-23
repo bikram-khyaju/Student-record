@@ -49,8 +49,8 @@
 
 	<form:form modelAttribute="user" class="form-signin"  method="POST">
 		<h2 class="form-signin-heading">Please sign in</h2>
-		<input type="name"  class="form-control" placeholder="Name" required autofocus> 
-		<input type="password"  class="form-control"  placeholder="Password" required>
+		<input type="name"  class="form-control" placeholder="Name" name="name" required autofocus> 
+		<input type="password"  class="form-control"  placeholder="Password" name="password" required>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign	in</button>
 	</form:form>
 
