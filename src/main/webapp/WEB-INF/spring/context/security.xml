@@ -7,8 +7,11 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http>
-		<intercept-url pattern="/userList**" access="ROLE_ADMIN" />
-		<form-login login-page=""/>
+		<intercept-url pattern="/userList**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/userList/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/studentList**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/studentList/**" access="hasRole('ROLE_ADMIN')" />
+		<form-login login-page="/login"/>
 		<logout />
 	</http>
 

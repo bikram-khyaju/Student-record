@@ -32,6 +32,16 @@ public class StudentServiceImpl implements StudentService {
 		//Integer ids = (int)id;
 		studentRepository.delete(id);
 	}
+
+	@Override
+	public Student edit(long id) {
+		return studentRepository.findOne(id);
+	}
+
+	
+
+
+	
 	
 
 

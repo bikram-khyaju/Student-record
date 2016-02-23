@@ -13,28 +13,29 @@
 	<definition name="home" extends="common">
 		<put-attribute name="title" value="Java Blog" />
 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
-		<put-attribute name="current" value="home" cascade="true"/>
+		<put-attribute name="current" value="home" cascade="true" />
 	</definition>
 
 	<definition name="student" extends="common">
 		<put-attribute name="title" value="Java Blog" />
 		<put-attribute name="body" value="/WEB-INF/views/student.jsp" />
-		<put-attribute name="current" value="student" cascade="true"/>
+		<put-attribute name="current" value="student" cascade="true" />
 	</definition>
-	
+
 	<definition name="studentList" extends="common">
 		<put-attribute name="title" value="Student List" />
 		<put-attribute name="body" value="/WEB-INF/views/studentList.jsp" />
-		<put-attribute name="current" value="studentList" cascade="true"/>
+		<put-attribute name="current" value="studentList"
+			cascade="true" />
 	</definition>
-	
+
 	<definition name="userList" extends="common">
 		<put-attribute name="title" value="userList" />
 		<put-attribute name="body" value="/WEB-INF/views/userList.jsp" />
-		<put-attribute name="current" value="userList" cascade="true"/>
+		<put-attribute name="current" value="userList" cascade="true" />
 	</definition>
-	
-	
+
+
 	<definition name="login" extends="common">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
@@ -46,10 +47,17 @@
 		<put-attribute name="body" value="/WEB-INF/views/thankyou.jsp" />
 		<put-attribute name="current" value="thankyou" cascade="true"></put-attribute>
 	</definition>
-	
+
 	<definition name="user-register" extends="common">
 		<put-attribute name="title" value="user-register" />
 		<put-attribute name="body" value="/WEB-INF/views/user-register.jsp" />
 		<put-attribute name="current" value="register" cascade="true"></put-attribute>
 	</definition>
+
+	<definition name="edit-student" extends="common">
+		<put-attribute name="title" value="edit-student" />
+		<put-attribute name="body" value="/WEB-INF/views/edit-student.jsp" />
+		<put-attribute name="current" value="studentList" cascade="true"></put-attribute>
+	</definition>
+
 </tiles-definitions>

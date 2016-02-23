@@ -60,11 +60,22 @@ public class StudentController {
 		return "studentList";
 	}
 	
-	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/editStudent/{id}", method=RequestMethod.GET)
+	public String editStudent(@ModelAttribute("student") Student student,@PathVariable long id,Model model){
+		model.addAttribute("studentEdit", studentService.edit(id));
+		return "edit-student";
+	}
+	
+	@RequestMapping(value="/editStudent/{id}", method=RequestMethod.POST)
+	public String editStudent(@ModelAttribute("student") Student student,Model model){
+		//model.addAttribute("studentEdit", studentService.edit(id));
+		return "edit-student";
+	}
+	
+	@RequestMapping(value="/deleteStudent/{id}", method=RequestMethod.GET)
 	public String deleteStudent(@PathVariable int id,Model model){
 		studentService.delete(id);
-		// model.addAttribute("studentList", studentService.allStudentList());
-		return "redirect:/allStudent";
+		return "redirect:/studentList";
 	}
 
 }

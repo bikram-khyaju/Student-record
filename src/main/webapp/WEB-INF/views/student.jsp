@@ -4,7 +4,7 @@
 <%@ include file="../layout/taglib.jsp" %>
 
 <section class="container">
-	<form:form modelAttribute="student" class="form-horizontal">
+	<form:form modelAttribute="student" class="form-horizontal"  >
 		<fieldset>
 			<legend>New Student</legend>
 
@@ -12,7 +12,7 @@
 				<label class="control-label col-lg-2" for="firstName">First
 					Name</label>
 				<div class="col-lg-10">
-					<form:input id="firstName" path="firstName" type="text"
+					<form:input id="firstName" path="firstName" type="text" 
 						class="form:input-large" />
 				</div>
 			</div>
@@ -21,10 +21,27 @@
 				<label class="control-label col-lg-2" for="lastName">Last
 					Name</label>
 				<div class="col-lg-10">
-					<form:input id="lastName" path="lastName" type="text"
+					<form:input id="lastName" path="lastName" type="text" 
 						class="form:input-large" />
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-lg-2" for="email">email</label>
+				<div class="col-lg-10">
+					<form:input id="email" path="email" type="text" 
+						class="form:input-large" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-lg-2" for="password">Password</label>
+				<div class="col-lg-10">
+					<form:input id="password" path="password" type="text" 
+						class="form:input-large" />
+				</div>
+			</div>
+			
 
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-10">

@@ -13,7 +13,7 @@
 		<c:forEach items="${studentList}" var="student">
 		<tr>
 			<td>${student.firstName}</td>
-			<td><a href='<spring:url value="/edit" />'>Edit</a> || <a href='<spring:url value="/delete/${student.id}" />'>Delete</a></td>
+			<td><a href='<spring:url value="/editStudent/${student.id}" />'>Edit</a> || <a href='<spring:url value="/deleteStudent/${student.id}" />'>Delete</a></td>
 		</tr>
 		</c:forEach>
 	</tbody>

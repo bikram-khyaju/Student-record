@@ -10,5 +10,7 @@ public interface StudentService {
 	public void add(Student student);
 	public void delete(long id);
 	public List<Student> allStudentList();
+	public Student edit(long id);
+	
 
 }
