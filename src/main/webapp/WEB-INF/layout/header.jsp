@@ -17,8 +17,9 @@
 					<li class="${current == 'studentList' ? 'active' : ''}"><a href='<spring:url value="/studentList" />'>Student List</a></li>
 					<li class="${current == 'userList' ? 'active' : ''}"><a href='<spring:url value="/userList" />'>user-list</a></li>
 					<li class="${current == 'register' ? 'active' : ''}"><a href='<spring:url value="/register" />'>user-register</a></li>
-
 					<li class="${current == 'login' ? 'active' : ''}"><a href='<spring:url value="/login" />'>login</a></li>
+					<li> <a href='<spring:url value="/logout" />'>logout</a></li>
+					
 				</ul>
 			</nav>
 

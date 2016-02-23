@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.student.record.domain.Student;
 import com.student.record.domain.User;
 import com.student.record.service.UserService;
 
@@ -56,10 +57,15 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
-	public String editUser(@PathVariable long id,Model model){
+	public String edit(@PathVariable long id,Model model){
 		model.addAttribute("user", userService.findById(id));
 		return "user-register";
 	}
 	
-
+	@RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
+	public String editUser(@ModelAttribute("student") User user, Model model){
+		userService.save(user);
+		return "redirect:/userList";
+	}
+	
 }

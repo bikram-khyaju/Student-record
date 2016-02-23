@@ -68,8 +68,8 @@ public class StudentController {
 	
 	@RequestMapping(value="/editStudent/{id}", method=RequestMethod.POST)
 	public String editStudent(@ModelAttribute("student") Student student,Model model){
-		//model.addAttribute("studentEdit", studentService.edit(id));
-		return "edit-student";
+		studentService.add(student);
+		return "redirect:/studentList";
 	}
 	
 	@RequestMapping(value="/deleteStudent/{id}", method=RequestMethod.GET)
