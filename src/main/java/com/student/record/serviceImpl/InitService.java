@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,25 +24,28 @@ public class InitService {
 	private UserRepository userRepository;
 	
 	@Autowired
-	private RoleRepositiory roleRepositiory;
+	private RoleRepositiory roleRepository;
 	
 	@PostConstruct
 	public void init(){
-		Role roleUser = new Role();
+/*		Role roleUser = new Role();
 		roleUser.setName("ROLE_USER");
-		roleRepositiory.save(roleUser);
+		roleRepository.save(roleUser);
 		
 		Role roleAdmin = new Role();
-		roleAdmin.setName("ROLE_Admin");
-		roleRepositiory.save(roleAdmin);
+		roleAdmin.setName("ROLE_ADMIN");
+		roleRepository.save(roleAdmin);
 		
 		User userAdmin = new User();
-		userAdmin.setName("Admin");
-		List<Role> roles = new ArrayList<>();
-		roles.add(roleAdmin);	
+		userAdmin.setEnabled(true);
+		userAdmin.setName("admin");
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		userAdmin.setPassword(encoder.encode("admin"));
+		List<Role> roles = new ArrayList<Role>();
 		roles.add(roleUser);
+		roles.add(roleAdmin);
 		userAdmin.setRoles(roles);
-		userRepository.save(userAdmin);
+		userRepository.save(userAdmin);*/
 	}
 	
 

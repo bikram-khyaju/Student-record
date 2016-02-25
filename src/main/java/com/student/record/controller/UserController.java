@@ -1,8 +1,11 @@
 package com.student.record.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,15 +34,18 @@ public class UserController {
 		return "studentList";
 	}
 	
-	@RequestMapping("/register")
+	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public String register(Model model){
 		return "user-register";
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public String doRegister(@ModelAttribute("user") User user, Model model){
+	public String doRegister(@Valid @ModelAttribute("user") User user,BindingResult result ,Model model){
+		if(result.hasErrors()){
+			return "user-register";
+		}
 		userService.save(user);
-		return "user-register";
+		return "userList";
 	}
 
 	

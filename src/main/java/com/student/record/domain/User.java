@@ -9,29 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@Column(name = "UserName")
+
+	@Size(min=3, message="Name must be atleast 3 characters!")
 	private String name;
-	
+
+	@Email
 	private String email;
-	
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
+	@Size(min=5, message="Password must be atleast 8 characters!")
 	private String password;
-	
+
+	private boolean enabled;
+
 	@ManyToMany
 	@JoinTable
 	private List<Role> roles;
@@ -52,8 +52,6 @@ public class User {
 		this.id = id;
 	}
 
-	
-
 	public String getName() {
 		return name;
 	}
@@ -69,7 +67,21 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 }

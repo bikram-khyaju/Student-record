@@ -13,16 +13,13 @@ import javax.persistence.ManyToMany;
 public class Role {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name = "RoleName")
 	private String name;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "roles")
 	private List<User> users;
-
-	
 
 	public List<User> getUsers() {
 		return users;

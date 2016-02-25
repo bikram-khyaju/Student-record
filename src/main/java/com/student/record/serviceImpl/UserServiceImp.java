@@ -1,12 +1,16 @@
 package com.student.record.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.student.record.domain.Role;
 import com.student.record.domain.User;
+import com.student.record.repository.RoleRepositiory;
 import com.student.record.repository.UserRepository;
 import com.student.record.service.UserService;
 
@@ -16,6 +20,9 @@ public class UserServiceImp implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private RoleRepositiory roleRepository;
 
 	@Override
 	public List<User> allUser() {
@@ -25,6 +32,14 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public void save(User user) {
+		/*user.setEnabled(true);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		user.setPassword(encoder.encode(user.getPassword()));
+		
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(roleRepository.findByName("ROLE_USER"));
+		user.setRoles(roles);*/
+		
 		userRepository.save(user);
 	}
 
